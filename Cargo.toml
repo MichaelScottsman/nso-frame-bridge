@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2024"
 description = "Switch 2 NSO GameCube controller over Bluetooth LE as a virtual Xbox 360 pad (Steam Frame / Linux and Windows)"
 license = "Apache-2.0"
-repository = "https://github.com/MichaelScottsman/framecube-bridge"
+repository = "https://github.com/MichaelScottsman/nso-frame-bridge"
 
 [dependencies]
 anyhow = "1.0.104"

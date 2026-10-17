@@ -1,4 +1,4 @@
-# framecube-bridge
+# nso-frame-bridge
 
 Use the Nintendo Switch Online (Switch 2) GameCube controller wirelessly on a
 **Steam Frame** (SteamOS/Linux) or a **Windows** PC, with the device's own
@@ -15,11 +15,11 @@ Xbox 360 pad, so Steam Input and games pick it up like any other controller.
 The executable is called `nso-gc-bridge`.
 
 ## Steam Frame install
-Download `framecube-bridge-*-linux-aarch64.tar.gz` from
+Download `nso-frame-bridge-*-linux-aarch64.tar.gz` from
 [Releases](../../releases) to the Frame (desktop mode or SSH), then:
 ```
-tar xzf framecube-bridge-*-linux-aarch64.tar.gz
-cd framecube-bridge-*-linux-aarch64
+tar xzf nso-frame-bridge-*-linux-aarch64.tar.gz
+cd nso-frame-bridge-*-linux-aarch64
 sh frame/install.sh
 sudo setcap cap_net_raw+ep ~/.local/share/nso-gc-bridge/nso-gc-bridge
 ```
