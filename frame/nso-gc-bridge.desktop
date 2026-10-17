@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=GameCube Controller
+GenericName=NSO GameCube controller bridge
+Comment=Turn the wireless Switch 2 GameCube controller bridge on or off. When on, press Sync on the controller; it appears as an Xbox 360 pad.
+Exec=/home/steamos/.local/share/nso-gc-bridge/nsogc toggle
+Icon=/home/steamos/.local/share/nso-gc-bridge/icon.png
+Terminal=false
+Categories=Settings;
+Keywords=gamecube;controller;nso;switch;nintendo;gamepad;bluetooth;
+StartupNotify=false

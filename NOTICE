@@ -1,0 +1,17 @@
+framecube-bridge
+Copyright 2026 MichaelScottsman
+
+Portions of the Switch 2 controller protocol logic (controller detection, the
+init/pairing command sequence, input report parsing and GameCube rumble) are
+ported from joypad-os (https://github.com/joypad-ai/joypad-os), licensed under
+the Apache License 2.0:
+  src/bt/btstack/btstack_host.c
+  src/bt/bthid/devices/vendors/nintendo/switch2_ble.c
+  src/bt/switch2_ble/gen_switch2_gatt.py
+
+Protocol details were also checked against ndeadly/switch2_controller_research
+(https://github.com/ndeadly/switch2_controller_research), and joypad-os credits
+BlueRetro (https://github.com/darthcloud/BlueRetro).
+
+Nintendo, Nintendo Switch and GameCube are trademarks of Nintendo. This project
+is not affiliated with or endorsed by Nintendo or Valve.

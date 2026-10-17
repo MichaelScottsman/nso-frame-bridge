@@ -1,0 +1,32 @@
+#!/bin/sh
+# NSO GameCube controller bridge toggle for the Steam Frame.
+# Steam's "+ > Launch Program" runs this with the Steam runtime's library
+# overrides in the environment; drop them so system tools load cleanly.
+unset LD_LIBRARY_PATH LD_PRELOAD
+DIR="$(dirname "$(readlink -f "$0")")"
+UNIT=nso-gc-bridge
+
+notify() {
+    notify-send -a "GameCube Controller" -i "$DIR/icon.png" "GameCube Controller" "$1" 2>/dev/null || true
+}
+
+start() {
+    systemctl --user reset-failed "$UNIT" 2>/dev/null
+    systemd-run --user --unit="$UNIT" --description="NSO GameCube controller bridge" \
+        --setenv=RUST_LOG=info "$DIR/nso-gc-bridge" run >/dev/null
+    notify "On. Press Sync on the controller to connect."
+}
+
+stop() {
+    systemctl --user stop "$UNIT"
+    notify "Off."
+}
+
+case "${1:-toggle}" in
+    start) systemctl --user is-active --quiet "$UNIT" || start ;;
+    stop) stop ;;
+    status) systemctl --user is-active "$UNIT" ;;
+    log) journalctl --user -u "$UNIT" --no-pager -o cat -n "${2:-40}" ;;
+    toggle) if systemctl --user is-active --quiet "$UNIT"; then stop; else start; fi ;;
+    *) echo "usage: $0 [toggle|start|stop|status|log [N]]" >&2; exit 2 ;;
+esac
